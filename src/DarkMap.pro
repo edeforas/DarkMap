@@ -5,12 +5,14 @@ QT += widgets
 SOURCES += main.cpp \
         ImageProducer.cpp \
 		ImageConsumer.cpp \
-        ImageDisplay.cpp \
+        ImageWindow.cpp \
         ImageCallback.cpp \
-        ImageVideoReader.cpp
+        ImageVideoReader.cpp \
+		ImageCamera.cpp
 		
 HEADERS += ImageProducer.h \
         ImageConsumer.h \
-        ImageDisplay.h \
+        ImageWindow.h \
         ImageCallback.h \
+        ImageCamera.h \
 		ImageVideoReader.h
