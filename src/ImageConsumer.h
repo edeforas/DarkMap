@@ -1,14 +1,14 @@
-#ifndef ImageSource_
-#define ImageSource_
+#ifndef ImageConsumer_
+#define ImageConsumer_
 
 #include <string>
 using namespace std;
 
-class ImageSource
+class ImageConsumer
 {
 public:
-	ImageSource();
-	virtual ~ImageSource();
+	ImageConsumer();
+	virtual ~ImageConsumer();
 
     virtual bool open(string sName) =0;
 	virtual void close() =0;
