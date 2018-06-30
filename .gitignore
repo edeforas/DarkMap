@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+*.stash
+*.pdb
+Makefile*
+*.ilk
+*.user
