@@ -1,14 +1,13 @@
-#ifndef ImageSource_
-#define ImageSource_
+#ifndef ImageSourceVideo_
+#define ImageSourceVideo_
 
-#include <string>
-using namespace std;
+#include "ImageSource.h"
 
-class ImageSource
+class ImageSourceVideo: public ImageSource
 {
 public:
-	ImageSource();
-	virtual ~ImageSource();
+	ImageSourceVideo();
+	virtual ~ImageSourceVideo();
 
     virtual bool open(string sName) =0;
 	virtual void close() =0;

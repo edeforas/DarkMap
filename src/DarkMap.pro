@@ -3,6 +3,8 @@ DESTDIR = ../DarkMap
 QT += widgets
 
 SOURCES += main.cpp \
-        ImageSource.cpp
-	
-HEADERS += ImageSource.h
+        ImageSource.cpp \
+        ImageSourceVideo.cpp
+		
+HEADERS += ImageSource.h \
+        ImageSourceVideo.h
