@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+*.stash
+*.pdb
+Makefile*
+ilk
+user
+Debug
+release
+*Debug*
+*.user
+*Release*
+.vs
+*.jpg
+*.mp4
