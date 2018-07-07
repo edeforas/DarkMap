@@ -38,3 +38,5 @@ ilk
 user
 Debug
 release
+*Debug*
+*.user

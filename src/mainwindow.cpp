@@ -1,6 +1,10 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include "ImageCamera.h"
+#include "ImageVideoReader.h"
+#include "ImageCamera.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -16,4 +20,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_actionExit_triggered()
 {
     close();
+}
+
+void MainWindow::on_actionOpen_triggered()
+{
+    //todo
 }

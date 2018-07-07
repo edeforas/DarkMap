@@ -21,6 +21,11 @@ HEADERS += ImageProducer.h \
 		ImageVideoReader.h
 
 		
+#opencv 
+INCLUDEPATH += $$(OPENCV_DIR)\include
+LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340.lib
+		
+		
 SOURCES += \
         main.cpp \
         mainwindow.cpp
