@@ -34,5 +34,7 @@
 *.stash
 *.pdb
 Makefile*
-*.ilk
-*.user
+ilk
+user
+Debug
+release

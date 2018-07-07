@@ -1,8 +1,11 @@
 TEMPLATE = app
-DESTDIR = ../DarkMap
-QT += widgets
+TARGET = DarkMap
+QT += widgets core gui
 
-SOURCES += main.cpp \
+win32:RC_FILE = DarkMap.rc
+RESOURCES += DarkMap.qrc
+
+SOURCES +=  \
         ImageProducer.cpp \
 		ImageConsumer.cpp \
         ImageWindow.cpp \
@@ -16,3 +19,14 @@ HEADERS += ImageProducer.h \
         ImageCallback.h \
         ImageCamera.h \
 		ImageVideoReader.h
+
+		
+SOURCES += \
+        main.cpp \
+        mainwindow.cpp
+
+HEADERS += \
+        mainwindow.h
+
+FORMS += \
+        mainwindow.ui

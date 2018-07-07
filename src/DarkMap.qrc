@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/DarkMap">
+        <file>DarkMap.ico</file>
+    </qresource>
+</RCC>
