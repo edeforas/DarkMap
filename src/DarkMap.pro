@@ -1,31 +1,33 @@
 TEMPLATE = app
-TARGET = DarkMap
+CONFIG(debug, debug|release):TARGET = DarkMap_debug
+CONFIG(release, debug|release):TARGET = DarkMap
 QT += widgets core gui
 
 win32:RC_FILE = DarkMap.rc
 RESOURCES += DarkMap.qrc
 
+#engine
 SOURCES +=  \
         ImageProducer.cpp \
-		ImageConsumer.cpp \
+        ImageConsumer.cpp \
         ImageWindow.cpp \
         ImageCallback.cpp \
         ImageVideoReader.cpp \
-		ImageCamera.cpp
+        ImageCamera.cpp
 		
 HEADERS += ImageProducer.h \
         ImageConsumer.h \
         ImageWindow.h \
         ImageCallback.h \
         ImageCamera.h \
-		ImageVideoReader.h
+        ImageVideoReader.h
 
-		
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include
-LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340.lib
-		
-		
+CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340d.lib
+CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340.lib
+
+#ui
 SOURCES += \
         main.cpp \
         mainwindow.cpp
