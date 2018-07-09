@@ -6,6 +6,7 @@ DialogOpen::DialogOpen(QWidget *parent) :
     ui(new Ui::DialogOpen)
 {
     ui->setupUi(this);
+    _imProducer=0;
 }
 
 DialogOpen::~DialogOpen()
@@ -46,4 +47,9 @@ void DialogOpen::on_OpenOneImage_clicked()
 void DialogOpen::on_OpenVideoFile_clicked()
 {
 
+}
+
+ImageProducer* DialogOpen::get_producer() // return the selected producer or 0 if Cancelled
+{
+    return _imProducer;
 }

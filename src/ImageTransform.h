@@ -1,16 +1,17 @@
-#ifndef ImageProducer_
-#define ImageProducer_
+#ifndef ImageTransform_
+#define ImageTransform_
 
 #include <string>
 using namespace std;
 
-#include "opencv2/imgproc.hpp"
+#include "ImageProducer.h"
+#include "ImageConsumer.h"
 
-class ImageProducer
+class ImageTransform: public ImageProducer, ImageConsumer
 {
 public:
-	ImageProducer();
-	virtual ~ImageProducer();
+	ImageTransform();
+	virtual ~ImageTransform();
 
     virtual bool open(string sName) =0;
 	virtual void close() =0;
@@ -21,7 +22,7 @@ public:
 protected:
 
 private:
-    cv::Mat _img;
+	
 };
 
 #endif

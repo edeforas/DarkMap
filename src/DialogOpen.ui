@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>508</width>
-    <height>212</height>
+    <width>501</width>
+    <height>236</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <item row="4" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QRadioButton" name="OpenImageFolder">
+      <widget class="QRadioButton" name="OpenVideoFile">
        <property name="text">
-        <string>ImageFolder</string>
+        <string>Video File</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -27,9 +27,19 @@
       </widget>
      </item>
      <item>
+      <widget class="QRadioButton" name="OpenImageFolder">
+       <property name="text">
+        <string>Image Folder</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QRadioButton" name="OpenOneImage">
        <property name="text">
-        <string>OneImage</string>
+        <string>One Image</string>
        </property>
       </widget>
      </item>
@@ -41,9 +51,9 @@
       </widget>
      </item>
      <item>
-      <widget class="QRadioButton" name="OpenVideoFile">
+      <widget class="QRadioButton" name="radioButton">
        <property name="text">
-        <string>Video File</string>
+        <string>Network Camera</string>
        </property>
       </widget>
      </item>

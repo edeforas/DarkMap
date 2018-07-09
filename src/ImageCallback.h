@@ -4,9 +4,9 @@
 #include <string>
 using namespace std;
 
-#include "ImageConsumer.h"
+#include "ImageTransform.h"
 
-class ImageCallback: public ImageConsumer
+class ImageCallback: public ImageTransform
 {
 public:
 	ImageCallback();

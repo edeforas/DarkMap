@@ -10,14 +10,17 @@ RESOURCES += DarkMap.qrc
 SOURCES +=  \
         ImageProducer.cpp \
         ImageConsumer.cpp \
+        ImageTransform.cpp \
         ImageWindow.cpp \
         ImageCallback.cpp \
         ImageVideoReader.cpp \
         ImageCamera.cpp \
     DialogOpen.cpp
 		
-HEADERS += ImageProducer.h \
+HEADERS += \
+		ImageProducer.h \
         ImageConsumer.h \
+        ImageTransform.h \
         ImageWindow.h \
         ImageCallback.h \
         ImageCamera.h \

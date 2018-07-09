@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+class ImageProducer;
+
 namespace Ui {
 class DialogOpen;
 }
@@ -14,6 +16,8 @@ class DialogOpen : public QDialog
 public:
     explicit DialogOpen(QWidget *parent = 0);
     ~DialogOpen();
+
+    ImageProducer* get_producer(); // return the selected producer or 0 if Cancelled , must be deleted by the caller
 
 private slots:
     void on_pushButton_clicked();
@@ -32,6 +36,7 @@ private slots:
 
 private:
     Ui::DialogOpen *ui;
+    ImageProducer* _imProducer;
 };
 
 #endif // DIALOGOPEN_H
