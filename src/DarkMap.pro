@@ -13,14 +13,16 @@ SOURCES +=  \
         ImageWindow.cpp \
         ImageCallback.cpp \
         ImageVideoReader.cpp \
-        ImageCamera.cpp
+        ImageCamera.cpp \
+    DialogOpen.cpp
 		
 HEADERS += ImageProducer.h \
         ImageConsumer.h \
         ImageWindow.h \
         ImageCallback.h \
         ImageCamera.h \
-        ImageVideoReader.h
+        ImageVideoReader.h \
+    DialogOpen.h
 
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include
@@ -36,4 +38,5 @@ HEADERS += \
         mainwindow.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    DialogOpen.ui

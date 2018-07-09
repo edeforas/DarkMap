@@ -5,6 +5,8 @@
 #include "ImageVideoReader.h"
 #include "ImageCamera.h"
 
+#include "DialogOpen.h"
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -24,5 +26,10 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    //todo
+    DialogOpen dlgOpen;
+    if(dlgOpen.exec())
+    {
+        //todo
+
+    }
 }
