@@ -12,11 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+	_pImProd=0;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+	delete _pImProd;
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -29,7 +31,8 @@ void MainWindow::on_actionOpen_triggered()
     DialogOpen dlgOpen;
     if(dlgOpen.exec())
     {
-        //todo
-
+		delete _pImProd;
+        _pImProd=dlgOpen.get_producer();
     }
+	//todo open?
 }

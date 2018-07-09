@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class ImageProducer;
+
 namespace Ui {
 class MainWindow;
 }
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+	ImageProducer* _pImProd;
 };
 
 #endif // MAINWINDOW_H
