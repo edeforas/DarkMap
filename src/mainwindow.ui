@@ -32,10 +32,21 @@
      <string>File</string>
     </property>
     <addaction name="actionOpen"/>
+    <addaction name="actionSetOutput"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuTasks">
+    <property name="title">
+     <string>Tasks</string>
+    </property>
+    <addaction name="actionView_Frames"/>
+    <addaction name="actionGetGoodFrames"/>
+    <addaction name="actionStabilize"/>
+    <addaction name="actionMap_Panorama"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTasks"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -54,6 +65,31 @@
   <action name="actionOpen">
    <property name="text">
     <string>Open...</string>
+   </property>
+  </action>
+  <action name="actionSetOutput">
+   <property name="text">
+    <string>Set Output...</string>
+   </property>
+  </action>
+  <action name="actionView_Frames">
+   <property name="text">
+    <string>View Frames</string>
+   </property>
+  </action>
+  <action name="actionGetGoodFrames">
+   <property name="text">
+    <string>GetGoodFrames</string>
+   </property>
+  </action>
+  <action name="actionStabilize">
+   <property name="text">
+    <string>Stabilize</string>
+   </property>
+  </action>
+  <action name="actionMap_Panorama">
+   <property name="text">
+    <string>Map Panorama</string>
    </property>
   </action>
  </widget>
