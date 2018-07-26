@@ -15,9 +15,9 @@ public:
     virtual bool open(string sName);
     virtual void close();
 	virtual bool is_opened();
-
-	//CvImage next_image();
 	
+    virtual void compute(const cv::Mat& m);
+
 protected:
 
 private:

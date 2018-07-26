@@ -14,9 +14,7 @@ SOURCES +=  \
         ImageWindow.cpp \
         ImageCallback.cpp \
         ImageVideoReader.cpp \
-        ImageCamera.cpp \
-    DialogOpen.cpp \
-    DialogSetOutput.cpp
+        ImageCamera.cpp
 		
 HEADERS += \
 		ImageProducer.h \
@@ -25,24 +23,26 @@ HEADERS += \
         ImageWindow.h \
         ImageCallback.h \
         ImageCamera.h \
-        ImageVideoReader.h \
-    DialogOpen.h \
-    DialogSetOutput.h
-
+        ImageVideoReader.h
+	
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include
 CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340d.lib
 CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340.lib
 
-#ui
+#UI
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp
+    DialogOpen.cpp \
+    DialogSetOutput.cpp
+    main.cpp \
+    mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h
+    DialogOpen.h \
+    DialogSetOutput.h
+    mainwindow.h
 
 FORMS += \
-        mainwindow.ui \
+    mainwindow.ui \
     DialogOpen.ui \
     DialogSetOutput.ui

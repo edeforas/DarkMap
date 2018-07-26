@@ -9,14 +9,16 @@ int main()
     ImageCamera camera;
     ImageWindow window;
 
+    camera.add_consumer(&window);
+
     if(!camera.open())
     {
         cout << "unable to open camera!" << endl;
         return -1;
     }
 
-    //todo
-
+    for(int i=0;i<1000;i++)
+        camera.run();
 
 	return 0;
 }
