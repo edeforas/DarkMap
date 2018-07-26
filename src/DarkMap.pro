@@ -27,8 +27,8 @@ HEADERS += \
 	
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include
-CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340d.lib
-CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world340.lib
+CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world341d.lib
+CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world341.lib
 
 #UI
 SOURCES += \
