@@ -33,13 +33,13 @@ CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world341
 #UI
 SOURCES += \
     DialogOpen.cpp \
-    DialogSetOutput.cpp
+    DialogSetOutput.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     DialogOpen.h \
-    DialogSetOutput.h
+    DialogSetOutput.h \
     mainwindow.h
 
 FORMS += \
