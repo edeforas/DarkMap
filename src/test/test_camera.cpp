@@ -8,6 +8,7 @@ int main()
 {
     ImageCamera camera;
     ImageWindow window;
+    window.open("Test");
 
     camera.add_consumer(&window);
 
@@ -17,7 +18,7 @@ int main()
         return -1;
     }
 
-    for(int i=0;i<1000;i++)
+    for(int i=0;i<300;i++)
         camera.run();
 
 	return 0;

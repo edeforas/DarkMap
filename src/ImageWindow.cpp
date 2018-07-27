@@ -10,7 +10,8 @@ ImageWindow::~ImageWindow()
 
 bool ImageWindow::open(string sName)
 {
-    namedWindow( "Image", cv::WINDOW_AUTOSIZE );
+    _sName=sName;
+    cv::namedWindow( sName, cv::WINDOW_AUTOSIZE | cv::WINDOW_KEEPRATIO );
     return true;
 }
 
@@ -24,8 +25,8 @@ bool ImageWindow::is_opened()
 
 void ImageWindow::compute(const cv::Mat& m)
 {
-    cv::imshow("Image", m );
-    cv::updateWindow("Image");
+    cv::imshow(_sName, m );
+    cv::waitKey(1); //need to add this, don't know why...
 }
 
 

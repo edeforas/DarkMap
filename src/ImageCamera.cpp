@@ -8,17 +8,17 @@ ImageCamera::~ImageCamera()
 
 bool ImageCamera::open(string sName)
 {
-    _vc.open(0);
-    return true;
+    return _vc.open(0);
 }
 
 void ImageCamera::close()
 {
+    _vc.release();
 }
 
 bool ImageCamera::is_opened()
 {
-    return true;
+    return _vc.isOpened();
 }
 
 void ImageCamera::run()

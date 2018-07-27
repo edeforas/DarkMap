@@ -21,7 +21,7 @@ public:
 protected:
 
 private:
-	
+    string _sName;
 };
 
 #endif
