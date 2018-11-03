@@ -21,8 +21,7 @@ bool ImageCamera::is_opened()
     return _vc.isOpened();
 }
 
-void ImageCamera::run()
+void ImageCamera::get(cv::Mat &m)
 {
-    _vc >> _m;
-    forward(_m);
+    _vc >> m;
 }

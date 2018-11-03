@@ -10,7 +10,6 @@ int main()
     ImageWindow window;
     window.open("Test");
 
-    camera.add_consumer(&window);
 
     if(!camera.open())
     {
@@ -18,8 +17,12 @@ int main()
         return -1;
     }
 
+    cv::Mat m;
     for(int i=0;i<300;i++)
-        camera.run();
+    {
+        camera.get(m);
+        window.set(m);
+    }
 
-	return 0;
+    return 0;
 }

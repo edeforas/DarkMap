@@ -14,13 +14,12 @@ public:
     virtual bool open(string sName="");
 	virtual void close();
 	virtual bool is_opened();
-    virtual void run();
-	
+    virtual void get(cv::Mat& m);
+
 protected:
 
 private:
     cv::VideoCapture _vc;
-    cv::Mat _m;
 };
 
 #endif

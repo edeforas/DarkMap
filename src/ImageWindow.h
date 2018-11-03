@@ -16,7 +16,7 @@ public:
     virtual void close();
 	virtual bool is_opened();
 	
-    virtual void compute(const cv::Mat& m);
+    virtual void set(const cv::Mat& m);
 
 protected:
 
