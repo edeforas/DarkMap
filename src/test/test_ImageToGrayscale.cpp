@@ -1,6 +1,6 @@
 #include "ImageCamera.h"
-#include "ImageWindow.h"
 #include "ImageToGrayscale.h"
+#include "ImageWindow.h"
 
 #include <iostream>
 using namespace std;
@@ -8,10 +8,11 @@ using namespace std;
 int main()
 {
     ImageCamera camera;
-    ImageWindow window;
+    ImageWindow windowColor, windowGrey;
     ImageToGrayscale im2gray;
-    window.open("Test");
 
+    windowColor.open("ImageColor");
+    windowGrey.open("ImageGrey");
 
     if(!camera.open())
     {
@@ -19,12 +20,14 @@ int main()
         return -1;
     }
 
-    cv::Mat m;
+    cv::Mat m,mGrey;
+	
     for(int i=0;i<300;i++)
     {
         camera.get(m);
-        im2gray.compute(m,m);
-        window.set(m);
+        im2gray.compute(m,mGrey);
+        windowColor.set(m);
+        windowGrey.set(mGrey);
     }
 
     return 0;
