@@ -6,7 +6,7 @@ ImageWindow::ImageWindow()
 { }
 
 ImageWindow::~ImageWindow()
-{}
+{ }
 
 bool ImageWindow::open(string sName)
 {
@@ -16,11 +16,11 @@ bool ImageWindow::open(string sName)
 }
 
 void ImageWindow::close()
-{}
+{ }
 
 bool ImageWindow::is_opened()
 {
-    return false;
+    return false; //todo
 }
 
 void ImageWindow::set(const cv::Mat& m)

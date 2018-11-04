@@ -17,11 +17,6 @@ public:
 	virtual bool is_opened() =0;
 	
     virtual void set(const cv::Mat& m)=0;
-
-protected:
-
-private:
-	
 };
 
 #endif

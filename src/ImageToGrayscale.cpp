@@ -10,7 +10,7 @@ ImageToGrayscale::~ImageToGrayscale()
 void ImageToGrayscale::compute(const cv::Mat & mIn,cv::Mat & mOut)
 {
     if(mIn.channels()!=1)
-        cvtColor(mIn, mOut, cv::COLOR_RGB2GRAY);
+        cv::cvtColor(mIn, mOut, cv::COLOR_RGB2GRAY);
     else
         mOut=mIn;
 }

@@ -10,11 +10,6 @@ public:
 	virtual ~ImageToGrayscale();
 
 	virtual void compute(const cv::Mat & mIn,cv::Mat & mOut);
-
-protected:
-
-private:
-	
 };
 
 #endif

@@ -9,12 +9,7 @@ public:
 	ImageTransform();
 	virtual ~ImageTransform();
 
-	virtual void compute(const cv::Mat & mIn,cv::Mat & mOut)=0;
-
-protected:
-
-private:
-	
+	virtual void compute(const cv::Mat & mIn,cv::Mat & mOut)=0;	
 };
 
 #endif

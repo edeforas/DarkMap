@@ -16,8 +16,6 @@ public:
 	virtual bool is_opened();
     virtual void get(cv::Mat& m);
 
-protected:
-
 private:
     cv::VideoCapture _vc;
 };

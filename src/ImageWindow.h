@@ -18,8 +18,6 @@ public:
 	
     virtual void set(const cv::Mat& m);
 
-protected:
-
 private:
     string _sName;
 };

@@ -4,4 +4,4 @@ ImageTransform::ImageTransform()
 { }
 	
 ImageTransform::~ImageTransform()
-{}
+{ }

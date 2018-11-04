@@ -4,4 +4,4 @@ ImageConsumer::ImageConsumer()
 { }
 	
 ImageConsumer::~ImageConsumer()
-{}
+{ }
