@@ -9,8 +9,6 @@ INCLUDEPATH += ..
 #engine
 SOURCES +=  \
         ../ImageProducer.cpp \
-        ../ImageTransform.cpp \
-        ../ImageConsumer.cpp \
         ../ImageWindow.cpp \
         ../ImageToGrayscale.cpp \
         ../ImageEqualize.cpp \
@@ -19,8 +17,6 @@ SOURCES +=  \
 		
 HEADERS += \
         ../ImageProducer.h \
-        ../ImageTransform.h \
-        ../ImageConsumer.h \
         ../ImageWindow.h \
         ../ImageToGrayscale.h \
         ../ImageEqualize.h \
@@ -28,5 +24,5 @@ HEADERS += \
 
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include
-CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world341d.lib
-CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world341.lib
+CONFIG(debug, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world400d.lib
+CONFIG(release, debug|release):LIBS+=$$(OPENCV_DIR)\x64\vc15\lib\opencv_world400.lib

@@ -1,8 +1,8 @@
 TEMPLATE = app
 DESTDIR = ../DarkMap
 
-CONFIG(debug, debug|release):TARGET = test_camera_debug
-CONFIG(release, debug|release):TARGET = test_camera
+CONFIG(debug, debug|release):TARGET = test_ImageMatcher_debug
+CONFIG(release, debug|release):TARGET = test_ImageMatcher
 
 INCLUDEPATH += ..
 
@@ -10,13 +10,23 @@ INCLUDEPATH += ..
 SOURCES +=  \
         ../ImageProducer.cpp \
         ../ImageWindow.cpp \
+        ../ImageToGrayscale.cpp \
+        ../ImageEqualize.cpp \
         ../ImageCamera.cpp \
-        test_camera.cpp
+        test_ImageMatcher.cpp \
+    ../ImageAnnotated.cpp \
+    ../ImageMatcher.cpp \
+    ../ImageDrawMatches.cpp
 		
 HEADERS += \
         ../ImageProducer.h \
         ../ImageWindow.h \
+        ../ImageToGrayscale.h \
+        ../ImageEqualize.h \
         ../ImageCamera.h \
+    ../ImageAnnotated.h \
+    ../ImageMatcher.h \
+    ../ImageDrawMatches.h
 
 #opencv 
 INCLUDEPATH += $$(OPENCV_DIR)\include

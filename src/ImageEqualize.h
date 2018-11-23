@@ -1,15 +1,15 @@
 #ifndef ImageEqualize_
 #define ImageEqualize_
 
-#include "ImageTransform.h"
+#include "opencv2/imgproc.hpp"
 
-class ImageEqualize: public ImageTransform
+class ImageEqualize
 {
 public:
 	ImageEqualize();
 	virtual ~ImageEqualize();
 
-	virtual void compute(const cv::Mat & mIn,cv::Mat & mOut);
+	void compute(const cv::Mat & mIn,cv::Mat & mOut);
 	
 };
 

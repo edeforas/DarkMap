@@ -41,3 +41,4 @@ release
 *Debug*
 *.user
 *Release*
+.vs

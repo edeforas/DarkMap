@@ -4,9 +4,9 @@
 #include <string>
 using namespace std;
 
-#include "ImageConsumer.h"
+#include "opencv2/imgproc.hpp"
 
-class ImageWindow: public ImageConsumer
+class ImageWindow
 {
 public:
 	ImageWindow();

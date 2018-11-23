@@ -1,15 +1,15 @@
 #ifndef ImageToGrayscale_
 #define ImageToGrayscale_
 
-#include "ImageTransform.h"
+#include "opencv2/imgproc.hpp"
 
-class ImageToGrayscale: public ImageTransform
+class ImageToGrayscale
 {
 public:
 	ImageToGrayscale();
 	virtual ~ImageToGrayscale();
 
-	virtual void compute(const cv::Mat & mIn,cv::Mat & mOut);
+    void compute(const cv::Mat & mIn,cv::Mat & mOut);
 };
 
 #endif
