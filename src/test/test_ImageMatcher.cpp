@@ -28,7 +28,6 @@ int main()
     window.open("Images and match lines, key to exit");
 
 	cv::Mat m,mOut; 
-    std::vector<DMatch> matches;
 	bool bFirst = true;
 
 	while(cv::waitKey(1)==-1)
@@ -42,9 +41,10 @@ int main()
 			bFirst = false;
 		}
 
-        matcher.compute(annotated1, annotated2, matches);
+        matcher.compute(annotated1, annotated2);
 
-        drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matches, mOut);
+		//std::vector<DMatch> matches;
+		//drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matches, mOut);
 
         window.set(mOut);
     }

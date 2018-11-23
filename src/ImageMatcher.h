@@ -12,13 +12,15 @@ public:
 	ImageMatcher();
 	virtual ~ImageMatcher();
 
-	void compute(const ImageAnnotated& im1, const ImageAnnotated& im2, std::vector< DMatch >& matches);
+	void compute(const ImageAnnotated& im1, const ImageAnnotated& im2);
 	
 	const cv::Mat & fundamental_matrix() const;
 
 private:
 	Ptr<BFMatcher> _matcher;
 	cv::Mat _mFundamental;
+
+	std::vector<DMatch> _matches; //debug purpose
 
 };
 
