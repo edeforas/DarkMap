@@ -15,6 +15,7 @@ public:
 	void compute(const ImageAnnotated& im1, const ImageAnnotated& im2);
 	
 	const cv::Mat & fundamental_matrix() const;
+	const std::vector<DMatch> & matches() const;
 
 private:
 	Ptr<BFMatcher> _matcher;

@@ -43,8 +43,7 @@ int main()
 
         matcher.compute(annotated1, annotated2);
 
-		//std::vector<DMatch> matches;
-		//drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matches, mOut);
+		drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matcher.matches(), mOut);
 
         window.set(mOut);
     }
