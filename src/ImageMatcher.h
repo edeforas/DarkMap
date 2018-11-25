@@ -20,7 +20,6 @@ public:
 private:
 	Ptr<BFMatcher> _matcher;
 	cv::Mat _mFundamental;
-
 	std::vector<DMatch> _matches; //debug purpose
 
 };
