@@ -22,6 +22,8 @@ private:
     cv::Mat _mRaw;
 	std::vector<cv::KeyPoint> _keypoints;
 	cv::Mat _descriptors;
+	cv::Mat _chessboardCorners;
+	bool _bHaveCheckerBoard;
 
 };
 

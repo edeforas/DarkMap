@@ -39,13 +39,18 @@ int main()
 			continue;
 		}
 
+		if (annotated2.have_checkerboard())
+			cout << "checkerboard!!" << std::endl;
+		else
+			cout << "no checkerboard." << std::endl;
+
 		matcher.compute(annotated1, annotated2);
 
 		drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matcher.matches(), mOut);
 
 		window.set(mOut);
 
-		if (cv::waitKey(1) != -1)
+		if (cv::waitKey(10) != -1)
 			break;
 	}
 
