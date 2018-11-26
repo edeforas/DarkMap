@@ -5,7 +5,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 ImageMatcher::ImageMatcher()
 { 
-	_matcher = cv::BFMatcher::create(NORM_HAMMING,true); // using ORB
+	_matcher = cv::BFMatcher::create(NORM_L2,true); // NORM_L2 , NORM_HAMMING
 }
 ////////////////////////////////////////////////////////////////////////////////
 ImageMatcher::~ImageMatcher()
@@ -16,6 +16,10 @@ void ImageMatcher::compute(const ImageAnnotated& im1, const ImageAnnotated& im2 
 	cv::Mat inliners;
 	std::vector<cv::Point2f> vP1, vP2;
 	std::vector<DMatch> localMatches;
+
+	_matches.clear();
+	if ((im1.descriptors().rows < 20) || (im2.descriptors().rows < 20))
+		return;
 
 	_matcher->match(im1.descriptors(), im2.descriptors(), localMatches);
 
@@ -33,10 +37,9 @@ void ImageMatcher::compute(const ImageAnnotated& im1, const ImageAnnotated& im2 
 	}
 
 	//find the F matrix
-	_mFundamental =cv::findFundamentalMat(vP1,vP2, inliners, FM_RANSAC,1);
+	_mFundamental =cv::findFundamentalMat(vP1,vP2, inliners, FM_RANSAC);
 
 	//keep only the good matches using inliners
-	_matches.clear();
 	int iNbGoodMatches = 0;
 	for (int i=0; i<inliners.rows; i++)
 	{

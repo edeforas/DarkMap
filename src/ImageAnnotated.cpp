@@ -27,19 +27,18 @@ void ImageAnnotated::compute(const cv::Mat & mRaw)
 	}
 
 	//detect keypoints
-	auto detector = cv::ORB::create();
+	auto detector = cv::AKAZE::create(); //AKAZE, BRISK, ORB
 	detector->detectAndCompute(mGreyR, cv::noArray(), _keypoints, _descriptors);
-	if (_keypoints.size() > 100)
+	if (_keypoints.size() > 500)
 	{
 		//detect checkerboard
-		bool bCornersFound=	cv::findChessboardCorners(mGreyR, cv::Size(9, 6), _chessboardCorners, CALIB_CB_ADAPTIVE_THRESH + CALIB_CB_NORMALIZE_IMAGE + CALIB_CB_FAST_CHECK);
+		bool bCornersFound = cv::findChessboardCornersSB(mGreyR, cv::Size(9, 6), _chessboardCorners); //, CALIB_CB_ADAPTIVE_THRESH + CALIB_CB_NORMALIZE_IMAGE + CALIB_CB_FAST_CHECK);
 		if (bCornersFound)
 		{
 		//todo	cv::cornerSubPix(mGreyR, _chessboardCorners, cv::Size(11, 11), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 30, 0.1));
 			//drawChessboardCorners(img, patternsize, Mat(corners), patternfound);
-		}
-
 		// later, use findChessboardCornersSB()
+		}
 	}
 	else
 	{

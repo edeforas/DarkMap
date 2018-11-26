@@ -33,7 +33,7 @@ int main()
 		camera.get(m);
 		annotated2.compute(m);
 
-		if (i<=20) //wait 20 frames for the camera to converge (focus,luminosity)
+		if (i<=10) //wait 20 frames for the camera to converge (focus,luminosity)
 		{
 			annotated1 = annotated2;
 			continue;
@@ -43,6 +43,9 @@ int main()
 			cout << "checkerboard!!" << std::endl;
 		else
 			cout << "no checkerboard." << std::endl;
+
+
+		cout << "nb of descriptors:" << annotated2.keypoints().size() << endl;
 
 		matcher.compute(annotated1, annotated2);
 

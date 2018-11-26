@@ -18,7 +18,7 @@ public:
 	const std::vector<DMatch> & matches() const;
 
 private:
-	Ptr<BFMatcher> _matcher;
+	Ptr<DescriptorMatcher> _matcher;
 	cv::Mat _mFundamental;
 	std::vector<DMatch> _matches; //debug purpose
 

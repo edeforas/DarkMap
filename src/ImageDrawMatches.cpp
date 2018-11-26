@@ -11,4 +11,4 @@ void ImageDrawMatches::compute(const cv::Mat & image1, const std::vector<KeyPoin
 	 cv::drawMatches( image1, vKP1, image2, vKP2, matches,  mOut);
 }
 //////////////////////////////////////////////////////////////////////////////
-	
+
