@@ -15,8 +15,8 @@ public:
 	const std::vector<cv::KeyPoint>& keypoints() const;
 	const cv::Mat& descriptors() const;
 
-	bool have_checkerboard()const;
-	bool have_keypoints()const;
+	bool has_checkerboard()const;
+	bool has_keypoints()const;
 	
 private:
     cv::Mat _mRaw;

@@ -1,4 +1,7 @@
 #include "ImageDrawMatches.h"	
+
+#include "ImageAnnotated.h"
+
 //////////////////////////////////////////////////////////////////////////////
 ImageDrawMatches::ImageDrawMatches()
 { }
@@ -6,9 +9,9 @@ ImageDrawMatches::ImageDrawMatches()
 ImageDrawMatches::~ImageDrawMatches()
 { }
 //////////////////////////////////////////////////////////////////////////////
-void ImageDrawMatches::compute(const cv::Mat & image1, const std::vector<KeyPoint> &vKP1, const cv::Mat & image2, const std::vector<KeyPoint> &vKP2, std::vector<DMatch> matches, cv::Mat & mOut)
+void ImageDrawMatches::compute(const ImageAnnotated & ia1, const ImageAnnotated & ia2, std::vector<DMatch> matches, cv::Mat & mOut)
 {
-	 cv::drawMatches( image1, vKP1, image2, vKP2, matches,  mOut);
+	 cv::drawMatches( ia1.raw(),ia1.keypoints(),ia2.raw(),ia2.keypoints(), matches,  mOut);
 }
 //////////////////////////////////////////////////////////////////////////////
 

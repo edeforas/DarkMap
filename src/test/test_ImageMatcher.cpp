@@ -1,5 +1,6 @@
 #include "ImageCamera.h"
 #include "ImageAnnotated.h"
+#include "ImageCalibration.h"
 #include "ImageMatcher.h"
 #include "ImageDrawMatches.h"
 #include "ImageWindow.h"
@@ -13,6 +14,7 @@ int main()
 {
     ImageCamera camera;
     ImageAnnotated annotated1, annotated2;
+	ImageCalibration calibration;
 	ImageMatcher matcher;
 
     ImageDrawMatches drawMatches;
@@ -32,24 +34,24 @@ int main()
 	{
 		camera.get(m);
 		annotated2.compute(m);
+		calibration.update(annotated2);
 
-		if (i<=10) //wait 20 frames for the camera to converge (focus,luminosity)
+		if (i<=10) //wait 10 frames for the camera to stabilize (focus,luminosity)
 		{
 			annotated1 = annotated2;
 			continue;
 		}
-
-		if (annotated2.have_checkerboard())
+		
+		if (annotated2.has_checkerboard())
 			cout << "checkerboard!!" << std::endl;
 		else
 			cout << "no checkerboard." << std::endl;
 
-
-		cout << "nb of descriptors:" << annotated2.keypoints().size() << endl;
+		cout << "descriptors count: " << annotated2.keypoints().size() << endl;
 
 		matcher.compute(annotated1, annotated2);
 
-		drawMatches.compute(annotated1.raw(), annotated1.keypoints(), annotated2.raw(), annotated2.keypoints(), matcher.matches(), mOut);
+		drawMatches.compute(annotated1,annotated2, matcher.matches(), mOut);
 
 		window.set(mOut);
 

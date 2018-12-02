@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\ImageAnnotated.cpp" />
+    <ClCompile Include="..\ImageCalibration.cpp" />
     <ClCompile Include="..\ImageCamera.cpp" />
     <ClCompile Include="..\ImageDrawKeypoints.cpp" />
     <ClCompile Include="..\ImageDrawMatches.cpp" />
@@ -169,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\ImageAnnotated.h" />
+    <ClInclude Include="..\ImageCalibration.h" />
     <ClInclude Include="..\ImageCamera.h" />
     <ClInclude Include="..\ImageDrawKeypoints.h" />
     <ClInclude Include="..\ImageDrawMatches.h" />

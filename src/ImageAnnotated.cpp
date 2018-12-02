@@ -61,12 +61,12 @@ const cv::Mat& ImageAnnotated::descriptors() const
 	return _descriptors;
 }
 //////////////////////////////////////////////////////////////////////////////	
-bool ImageAnnotated::have_checkerboard() const
+bool ImageAnnotated::has_checkerboard() const
 {
 	return ! _chessboardCorners.empty();
 }
 //////////////////////////////////////////////////////////////////////////////	
-bool ImageAnnotated::have_keypoints() const
+bool ImageAnnotated::has_keypoints() const
 {
 	return _keypoints.size()!=0;
 }
