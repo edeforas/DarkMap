@@ -5,9 +5,7 @@
 using namespace cv;
 //////////////////////////////////////////////////////////////////////////////
 ImageAnnotated::ImageAnnotated()
-{
-	_bHaveCheckerBoard = false;
-}
+{ }
 //////////////////////////////////////////////////////////////////////////////
 ImageAnnotated::~ImageAnnotated()
 { }
@@ -33,11 +31,9 @@ void ImageAnnotated::compute(const cv::Mat & mRaw)
 	{
 		//detect checkerboard
 		bool bCornersFound = cv::findChessboardCornersSB(mGreyR, cv::Size(9, 6), _chessboardCorners); //, CALIB_CB_ADAPTIVE_THRESH + CALIB_CB_NORMALIZE_IMAGE + CALIB_CB_FAST_CHECK);
-		if (bCornersFound)
-		{
-		//todo	cv::cornerSubPix(mGreyR, _chessboardCorners, cv::Size(11, 11), cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 30, 0.1));
-			//drawChessboardCorners(img, patternsize, Mat(corners), patternfound);
-		// later, use findChessboardCornersSB()
+		if (!bCornersFound)
+		{ 	
+			_chessboardCorners.resize(0, 0);
 		}
 	}
 	else
@@ -69,5 +65,20 @@ bool ImageAnnotated::has_checkerboard() const
 bool ImageAnnotated::has_keypoints() const
 {
 	return _keypoints.size()!=0;
+}
+//////////////////////////////////////////////////////////////////////////////	
+bool ImageAnnotated::is_calibrated() const
+{
+	return !_cameraMatrix.empty();
+}
+//////////////////////////////////////////////////////////////////////////////
+void ImageAnnotated::set_camera_matrix(const cv::Mat & mCameraMatrix)
+{
+	_cameraMatrix = mCameraMatrix;
+}
+//////////////////////////////////////////////////////////////////////////////
+const cv::Mat & ImageAnnotated::get_checkerboard_points() const
+{
+	return _chessboardCorners;
 }
 //////////////////////////////////////////////////////////////////////////////	
