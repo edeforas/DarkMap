@@ -1,8 +1,8 @@
 #include "ImageCalibration.h"
-
 #include "ImageAnnotated.h"
 
 #include <opencv2/calib3d.hpp>
+
 //////////////////////////////////////////////////////////////////////////////
 ImageCalibration::ImageCalibration()
 { }

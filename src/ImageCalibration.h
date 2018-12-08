@@ -12,11 +12,12 @@ public:
 	virtual ~ImageCalibration();
 
 	// update the calibration model with  this image if possible (checkerboard)
-	// and then calibrate the image with the new or previous model, this is an in and out function
+	// and then calibrate the image with the new or previous model, this is an input and output function
 	void update(ImageAnnotated & m);
 
 	const cv::Mat& camera_matrix() const;
 
+	//return true if a new calibration occur
 	bool new_calibration() const;
 
 private:
