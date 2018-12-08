@@ -15,8 +15,14 @@ public:
 	// and then calibrate the image with the new or previous model, this is an in and out function
 	void update(ImageAnnotated & m);
 
+	const cv::Mat& camera_matrix() const;
+
+	bool new_calibration() const;
+
 private:
 	cv::Mat _cameraMatrix;
+	std::vector<cv::Mat> _imagePoints;
+	bool _bNewCalibration;
 };
 
 #endif

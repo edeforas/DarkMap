@@ -35,6 +35,8 @@ int main()
 		camera.get(m);
 		annotated2.compute(m);
 		calibration.update(annotated2);
+		if (calibration.new_calibration())
+			cout << calibration.camera_matrix() << endl;
 
 		if (i<=10) //wait 10 frames for the camera to stabilize (focus,luminosity)
 		{
