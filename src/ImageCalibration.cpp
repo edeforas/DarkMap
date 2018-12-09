@@ -26,10 +26,8 @@ void ImageCalibration::update(ImageAnnotated & m)
 		std::vector<cv::Point3f> corners;
 		std::vector<cv::Mat> allObjectsPoints;
 		cv::Mat imagePoints=m.get_checkerboard_points();
-		cv::Mat distCoefs;
-		cv::Size imageSize(m.raw().size());
-		cv::Mat rvecs;
-		cv::Mat tvecs;
+		cv::Size imageSize(m.raw_image().size());
+		cv::Mat rvecs,tvecs;
 
 		int flags = cv::CALIB_FIX_ASPECT_RATIO;
 
@@ -56,12 +54,12 @@ void ImageCalibration::update(ImageAnnotated & m)
 				_imagePoints,
 				imageSize,
 				_cameraMatrix,
-				distCoefs,
+				_distortion,
 				rvecs,
 				tvecs,
 				flags);
 
-			if (dRMS != 0) //todo
+			if (dRMS != 0) //todo check test
 				_bNewCalibration = true;
 
 			//Returns the overall RMS reprojection error. TODO
@@ -70,13 +68,18 @@ void ImageCalibration::update(ImageAnnotated & m)
 	}
 
 	// update image calibration, with camera model, if exist
-	if(! _cameraMatrix.empty())
-		m.set_camera_matrix(_cameraMatrix);
+	if (!_cameraMatrix.empty())
+		m.set_calibration(_cameraMatrix,_distortion);
 }
 //////////////////////////////////////////////////////////////////////////////
 const cv::Mat& ImageCalibration::camera_matrix() const
 {
 	return _cameraMatrix;
+}
+//////////////////////////////////////////////////////////////////////////////
+const cv::Mat& ImageCalibration::distortion() const
+{
+	return _distortion;
 }
 //////////////////////////////////////////////////////////////////////////////
 bool ImageCalibration::new_calibration() const

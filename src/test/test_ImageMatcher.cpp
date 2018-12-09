@@ -28,12 +28,12 @@ int main()
 
     window.open("Images and match lines, key to exit");
 
-	cv::Mat m,mOut; 
+	cv::Mat mIn,mOut; 
 	
 	for (int i = 0; i < 10000; i++)
 	{
-		camera.get(m);
-		annotated2.compute(m);
+		camera.get(mIn);
+		annotated2.compute(mIn);
 		calibration.update(annotated2);
 		if (calibration.new_calibration())
 			cout << calibration.camera_matrix() << endl;

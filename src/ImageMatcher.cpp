@@ -23,7 +23,7 @@ void ImageMatcher::compute(const ImageAnnotated& im1, const ImageAnnotated& im2 
 
 	_matcher->match(im1.descriptors(), im2.descriptors(), localMatches);
 
-	const auto & vKP1=im1.keypoints();
+	const auto & vKP1=im1.keypoints(); //todo use undistorted
 	const auto & vKP2=im2.keypoints();
 
 	// use matches in order and fill vP1 and vP2 
@@ -36,16 +36,16 @@ void ImageMatcher::compute(const ImageAnnotated& im1, const ImageAnnotated& im2 
 		vP2.push_back(vKP2[match.trainIdx].pt);
 	}
 
+	//calibrate points TODO
+
 	//find the F matrix
-	_mFundamental =cv::findFundamentalMat(vP1,vP2, inliners, FM_RANSAC);
+	_mFundamental = cv::findFundamentalMat(vP1, vP2, inliners, FM_RANSAC);
 
 	//keep only the good matches using inliners
-	int iNbGoodMatches = 0;
 	for (int i=0; i<inliners.rows; i++)
 	{
 		if (inliners.at<char>(i)!=0)
 		{
-			iNbGoodMatches++;
 			_matches.push_back(localMatches[i]);
 		}
 	}

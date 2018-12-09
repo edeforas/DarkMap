@@ -11,7 +11,7 @@ ImageDrawMatches::~ImageDrawMatches()
 //////////////////////////////////////////////////////////////////////////////
 void ImageDrawMatches::compute(const ImageAnnotated & ia1, const ImageAnnotated & ia2, std::vector<DMatch> matches, cv::Mat & mOut)
 {
-	 cv::drawMatches( ia1.raw(),ia1.keypoints(),ia2.raw(),ia2.keypoints(), matches,  mOut);
+	 cv::drawMatches( ia1.raw_image(),ia1.keypoints(),ia2.raw_image(),ia2.keypoints(), matches,  mOut);
 }
 //////////////////////////////////////////////////////////////////////////////
 

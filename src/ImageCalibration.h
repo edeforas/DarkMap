@@ -17,11 +17,14 @@ public:
 
 	const cv::Mat& camera_matrix() const;
 
+	const cv::Mat & distortion() const;
+
 	//return true if a new calibration occur
 	bool new_calibration() const;
 
 private:
 	cv::Mat _cameraMatrix;
+	cv::Mat _distortion;
 	std::vector<cv::Mat> _imagePoints;
 	bool _bNewCalibration;
 };
