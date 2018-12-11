@@ -33,7 +33,7 @@ void ImageAnnotated::compute(const cv::Mat & mRaw)
 	if (_keypoints.size() > 500)
 	{
 		//detect checkerboard
-		bool bCornersFound = cv::findChessboardCornersSB(mGreyR, cv::Size(9, 6), _chessboardCorners, CALIB_CB_ADAPTIVE_THRESH + CALIB_CB_NORMALIZE_IMAGE + CALIB_CB_FAST_CHECK);
+		bool bCornersFound = cv::findChessboardCornersSB(mGreyR, cv::Size(9, 6), _chessboardCorners, CALIB_CB_NORMALIZE_IMAGE );
 		if (!bCornersFound)
 		{ 	
 			_chessboardCorners.resize(0, 0);
