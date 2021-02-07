@@ -22,35 +22,36 @@ if not os.path.exists(out_folder):
 last_image=None
 index=-1
 nb_frames_still=0
+still_image_ref=None
+must_save=False
+last_sharpness=0
 while(True):
     index+=1
     ret,frame = vid_capture.read()
     if not ret:
         break
 
-    if (last_image is None) or (nb_frames_still==0):
+    if last_image is None:
         last_image=frame
 
-    if index==100:
-        index=101
-
     sharpness=cv2.Laplacian(frame, cv2.CV_64F).var()
-    if sharpness<min_sharpness:
-        nb_frames_still=0
-        continue
+    sharpness_good=sharpness>min_sharpness
+    still_good=cv2.matchTemplate(frame, last_image, cv2.TM_CCOEFF_NORMED)[0][0]>proba_similarity_match
 
-    img_template_probability_match = cv2.matchTemplate(frame, last_image, cv2.TM_CCOEFF_NORMED)[0][0]
-
-    if img_template_probability_match>proba_similarity_match:
+    if sharpness_good and still_good:
         nb_frames_still+=1
+        must_save=True
+        if last_sharpness<sharpness:
+            image_to_save=frame
     else:
+        if must_save and nb_frames_still>still_duration:
+            name = './' + out_folder +'/frame_' + str(index) + '.jpg'
+            print ('Saving...' + name)
+            cv2.imwrite(name, image_to_save)
+        must_save=False
         nb_frames_still=0
-        continue
 
-    if nb_frames_still>still_duration:
-        name = './' + out_folder +'/frame_' + str(index) + '.jpg'
-        print ('Saving...' + name)
-        cv2.imwrite(name, frame)
-        nb_frames_still=0
+    last_image=frame
+    last_sharpness=sharpness
 
 print("End of extraction.")
