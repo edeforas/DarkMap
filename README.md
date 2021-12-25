@@ -1,3 +1,3 @@
 # DarkMap
 
-Some tests with OpenCV, nothing interesting here.
+Some tests with OpenCV, related to video processing, nothing interesting here yet.
