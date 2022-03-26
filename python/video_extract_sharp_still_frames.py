@@ -6,13 +6,13 @@ import cv2
 # theses parameters can be changed
 proba_similarity_match=0.9
 video_file='video_test1.mp4'
-min_sharpness=100
-out_folder='images_still'
+min_sharpness=10
+out_folder='sharp_still_frames'
 still_duration=10  # 10 frames still needed
 
 ##########################################################################
 
-print("Extracting good images from video...")
+print("Extracting sharp still frames from video...")
 # set video file path of input video with name and extension
 vid_capture = cv2.VideoCapture(video_file)
 
@@ -34,7 +34,7 @@ while(True):
     if last_image is None:
         last_image=frame
 
-    sharpness=cv2.Laplacian(frame, cv2.CV_64F).var()
+    sharpness=cv2.Laplacian(frame, cv2.CV_64F).std()
     sharpness_good=sharpness>min_sharpness
     still_good=cv2.matchTemplate(frame, last_image, cv2.TM_CCOEFF_NORMED)[0][0]>proba_similarity_match
 

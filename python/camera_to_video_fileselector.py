@@ -1,9 +1,9 @@
 import cv2
 from tkinter import Tk     # from tkinter import Tk for Python 3.x
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import asksaveasfilename
 
 Tk().withdraw()
-filename = askopenfilename(title= "Please select a file:")
+filename = asksaveasfilename(title= "Select a video file to create:")
 
 #Capture video from webcam
 vid_capture = cv2.VideoCapture(0)

@@ -4,14 +4,14 @@ import os
 import cv2
 
 # theses parameters can be changed
-proba_similarity_match=0.8
+proba_similarity_match=0.6
 video_file='video_test1.mp4'
-min_sharpness=100
-out_folder='images'
+min_sharpness=10
+out_folder='sharp_images'
 
 ##########################################################################
 
-print("Extracting good images from video...")
+print("Extracting sharp frames from video...")
 # set video file path of input video with name and extension
 vid_capture = cv2.VideoCapture(video_file)
 
@@ -28,7 +28,7 @@ while(True):
     if not ret: 
         break
 
-    sharpness=cv2.Laplacian(frame, cv2.CV_64F).var()
+    sharpness=cv2.Laplacian(frame, cv2.CV_64F).std()
 
     if sharpness>min_sharpness:
         if sharpness>prev_sharpness:
@@ -37,7 +37,7 @@ while(True):
         else:
             if must_save:
                 must_save=False
-                # Saves image if not too similar to previous image
+                # Saves image if not similar to previous image
                 if last_saved_image is not None:
                     img_template_probability_match = cv2.matchTemplate(img_to_save, last_saved_image, cv2.TM_CCOEFF_NORMED)[0][0]
                     if img_template_probability_match>proba_similarity_match:
