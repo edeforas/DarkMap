@@ -3,13 +3,17 @@ import numpy as np
 import os
 import cv2
 
-# theses parameters can be changed
-proba_similarity_match=0.6
-video_file='video_test1.mp4'
-min_sharpness=10
-out_folder='sharp_images'
-
 ##########################################################################
+# from https://stackoverflow.com/questions/28717054/calculating-sharpness-of-an-image
+def getBlurValue(image):
+    canny = cv2.Canny(image, 50,250)
+    return np.mean(canny)
+##########################################################################
+
+# theses parameters can be changed
+video_file='video_test1.mp4'
+min_sharpness=4
+out_folder='sharp_images'
 
 print("Extracting sharp frames from video...")
 # set video file path of input video with name and extension
@@ -28,7 +32,7 @@ while(True):
     if not ret: 
         break
 
-    sharpness=cv2.Laplacian(frame, cv2.CV_64F).std()
+    sharpness=getBlurValue(frame)
 
     if sharpness>min_sharpness:
         if sharpness>prev_sharpness:
@@ -37,12 +41,7 @@ while(True):
         else:
             if must_save:
                 must_save=False
-                # Saves image if not similar to previous image
-                if last_saved_image is not None:
-                    img_template_probability_match = cv2.matchTemplate(img_to_save, last_saved_image, cv2.TM_CCOEFF_NORMED)[0][0]
-                    if img_template_probability_match>proba_similarity_match:
-                        continue # image is too similar
-
+ 
                 name = './' + out_folder +'/frame_' + str(index) + '.jpg'
                 print ('Saving...' + name)
                 cv2.imwrite(name, img_to_save)

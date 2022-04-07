@@ -3,14 +3,21 @@ import numpy as np
 import os
 import cv2
 
+##########################################################################
+# from https://stackoverflow.com/questions/28717054/calculating-sharpness-of-an-image
+def getBlurValue(image):
+    canny = cv2.Canny(image, 50,250)
+    return np.mean(canny)
+##########################################################################
+def getSimilarity(img1,img2):
+    return cv2.matchTemplate(frame, last_image, cv2.TM_CCOEFF_NORMED)[0][0]
+##########################################################################
 # theses parameters can be changed
 proba_similarity_match=0.9
 video_file='video_test1.mp4'
-min_sharpness=10
+min_sharpness=4
 out_folder='sharp_still_frames'
-still_duration=10  # 10 frames still needed
-
-##########################################################################
+still_duration=5  # 5 frames still needed
 
 print("Extracting sharp still frames from video...")
 # set video file path of input video with name and extension
@@ -34,9 +41,9 @@ while(True):
     if last_image is None:
         last_image=frame
 
-    sharpness=cv2.Laplacian(frame, cv2.CV_64F).std()
+    sharpness=getBlurValue(frame)
     sharpness_good=sharpness>min_sharpness
-    still_good=cv2.matchTemplate(frame, last_image, cv2.TM_CCOEFF_NORMED)[0][0]>proba_similarity_match
+    still_good=getSimilarity(frame, last_image)>proba_similarity_match
 
     if sharpness_good and still_good:
         nb_frames_still+=1
