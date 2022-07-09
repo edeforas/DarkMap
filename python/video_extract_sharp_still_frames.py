@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import os
-import cv2
 
 ##########################################################################
 # from https://stackoverflow.com/questions/28717054/calculating-sharpness-of-an-image
