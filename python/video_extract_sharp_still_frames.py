@@ -21,6 +21,9 @@ still_duration=5  # 5 frames still needed
 print("Extracting sharp still frames from video...")
 # set video file path of input video with name and extension
 vid_capture = cv2.VideoCapture(video_file)
+if vid_capture.isOpened()==False:
+    print("Video File not found: "+ video_file)
+    quit()
 
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)

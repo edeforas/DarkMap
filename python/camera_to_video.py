@@ -2,8 +2,15 @@ import cv2
 
 #Capture video from webcam
 vid_capture = cv2.VideoCapture(0)
-vid_cod = cv2.VideoWriter_fourcc(*'XVID')
-output = cv2.VideoWriter("video_test1.mp4", vid_cod, 20.0, (640,480))
+
+fps = vid_capture.get(cv2.CAP_PROP_FPS)
+print(f"Real FPS={fps}")
+#vid_capture.set(cv2.CAP_PROP_FPS, 100)
+#vid_capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+#vid_capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 1024)
+
+vid_codec = cv2.VideoWriter_fourcc(*'XVID')
+output = cv2.VideoWriter("video_test1.mp4", vid_codec, fps, (640,480))
 while(True):
      # Capture each frame of webcam video
      ret,frame = vid_capture.read()

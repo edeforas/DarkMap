@@ -17,7 +17,10 @@ out_folder='sharp_images'
 print("Extracting sharp frames from video...")
 # set video file path of input video with name and extension
 vid_capture = cv2.VideoCapture(video_file)
-
+if vid_capture.isOpened()==False:
+    print("Video File not found: "+ video_file)
+    quit()
+    
 if not os.path.exists(out_folder):
     os.makedirs(out_folder)
 
@@ -45,7 +48,6 @@ while(True):
                 print ('Saving...' + name)
                 cv2.imwrite(name, img_to_save)
                 last_saved_image=img_to_save
-
     
     prev_sharpness=sharpness
     index=index+1
